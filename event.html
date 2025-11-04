@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Events | Student Event Dashboard</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ====== Global Styles ====== */
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      font-family: 'Poppins', system-ui, sans-serif;
+      padding-top: 70px;
+      color: #e2e8f0;
+      transition: background 0.5s ease;
+      overflow-x: hidden;
+    }
+
+    h2 {
+      color: #60a5fa;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .main-content {
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    /* ====== Table Styles ====== */
+    table {
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    table:hover {
+      transform: scale(1.01);
+      box-shadow: 0 6px 25px rgba(37, 99, 235, 0.3);
+    }
+
+    th {
+      background: rgba(37, 99, 235, 0.9) !important;
+      color: #fff !important;
+      text-transform: capitalize;
+      font-size: 15px;
+      letter-spacing: 0.4px;
+    }
+
+    td, th {
+      vertical-align: middle !important;
+      text-align: center;
+      font-size: 15px;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    tr:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+      transition: background 0.3s ease;
+    }
+
+    .table-responsive {
+      animation: fadeInUp 1.5s ease;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    /* ====== Footer ====== */
+    footer {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ====== Scrollbar ====== */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #3b82f6;
+      border-radius: 10px;
+    }
+
+    /* ====== Animations ====== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ====== Responsive ====== */
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      table {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding-top: 60px;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      td, th {
+        font-size: 12px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- SIDEBAR (Keep same as your project) -->
+  <!--
+  <div class="sidebar">
+    <h4><i class="bi bi-speedometer2"></i> Admin Panel</h4>
+    <a href="dashboard.html"><i class="bi bi-house-door"></i> Event Dashboard</a>
+    <a href="student_dashboard.html"><i class="bi bi-people"></i> Student Dashboard</a>
+    <a href="event.html"><i class="bi bi-calendar-event"></i> Events</a>
+    <a href="student-info.html"><i class="bi bi-person-lines-fill"></i> Students</a>
+    <a href="index.html" id="logoutBtnSidebar" class="mt-auto text-danger"><i class="bi bi-box-arrow-right"></i> Logout</a>
+  </div>
+  -->
+
+  <!-- MAIN CONTENT -->
+  <main class="container mt-4 main-content">
+    <h2 class="mb-4 text-center"><i class="bi bi-calendar-event"></i> Event Details</h2>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped" id="eventsTable">
+        <thead class="table-dark"></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-4 text-center border-top border-secondary mt-5">
+    &copy; <span id="year"></span> Student Event Dashboard
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="js/events.js"></script>
+  <script src="js/sidebar.js"></script>
+</body>
+</html>
