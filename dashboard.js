@@ -164,9 +164,8 @@ document.getElementById('deptFilter').addEventListener('keydown', (e) => {
 });
 
 function computeTopKPIs() {
-  const uniqueStudents = new Set(allEvents.map(r => safe(r.Student_ID, '')).filter(x => x !== ''));
-  document.getElementById('kpiUniqueStudents').textContent = uniqueStudents.size;
-
+  // const uniqueStudents = new Set(allEvents.map(r => safe(r.Student_ID, '')).filter(x => x !== ''));
+  // document.getElementById('kpiUniqueStudents').textContent = uniqueStudents.size;
   const uniqueEvents = new Set(allEvents.map(r => safe(r.Event_ID, '') || `${r.Event_Name}|${r.Event_Date}`).filter(x => x !== ''));
   document.getElementById('kpiUniqueEvents').textContent = uniqueEvents.size;
 
@@ -277,8 +276,8 @@ function renderDashboardByRecords(records) {
   currentEventName = records[0].Event_Name || '';
   currentEventDate = records[0].Event_Date || '';
 
-  const uniqueStudents = new Set(records.map(r => safe(r.Student_ID, '')).filter(x => x !== ''));
-  document.getElementById('kpiUniqueStudents').textContent = uniqueStudents.size;
+  // const uniqueStudents = new Set(records.map(r => safe(r.Student_ID, '')).filter(x => x !== ''));
+  // document.getElementById('kpiUniqueStudents').textContent = uniqueStudents.size;
 
   const uniqueEvents = new Set(records.map(r => safe(r.Event_ID, '') || `${r.Event_Name}|${r.Event_Date}`).filter(x => x !== ''));
   document.getElementById('kpiUniqueEvents').textContent = uniqueEvents.size;
